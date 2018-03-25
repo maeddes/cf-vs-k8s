@@ -1,0 +1,16 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simpleweb
+spec:
+  containers:
+    - name: simpleweb
+      image: simpleweb:v0.1
+      ports:
+        - containerPort: 9080
+          name: http
+          protocol: TCP
+             
+
+    

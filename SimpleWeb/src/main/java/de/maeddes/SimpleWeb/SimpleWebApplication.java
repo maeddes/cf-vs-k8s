@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleWebApplication {
 	
-	@Value("${HOSTNAME:no_hostname}")
+	@Value("${HOSTNAME:null}")
 	String hostname;
 
 	@GetMapping("/hello")
