@@ -1,0 +1,110 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+# pods "simpleweb-pod" was not valid:
+# * spec: Forbidden: pod updates may not change fields other than `spec.containers[*].image`, `spec.initContainers[*].image`, `spec.activeDeadlineSeconds` or `spec.tolerations` (only additions to existing tolerations)
+{"Volumes":[{"Name":"default-token-rf5lq","HostPath":null,"EmptyDir":null,"GCEPersistentDisk":null,"AWSElasticBlockStore":null,"GitRepo":null,"Secret":{"SecretName":"default-token-rf5lq","Items":null,"DefaultMode":420,"Optional":null},"NFS":null,"ISCSI":null,"Glusterfs":null,"PersistentVolumeClaim":null,"RBD":null,"Quobyte":null,"FlexVolume":null,"Cinder":null,"CephFS":null,"Flocker":null,"DownwardAPI":null,"FC":null,"AzureFile":null,"ConfigMap":null,"VsphereVolume":null,"AzureDisk":null,"PhotonPersistentDisk":null,"Projected":null,"PortworxVolume":null,"ScaleIO":null,"StorageOS":null}],"InitContainers":null,"Containers":[{"Name":"simpleweb","Image":"simpleweb:v0.1","Command":null,"Args":null,"WorkingDir":"","Ports":[{"Name":"http","HostPort":0,"ContainerPort":8080,"Protocol":"TCP","HostIP":""}],"EnvFrom":null,"Env":null,"Resources":{"Limits":null,"Requests":null},"VolumeMounts":[{"Name":"default-token-rf5lq","ReadOnly":true,"MountPath":"/var/run/secrets/kubernetes.io/serviceaccount","SubPath":"","MountPropagation":null}],"VolumeDevices":null,"LivenessProbe":{"Exec":null,"HTTPGet":{"Path":"/actuator/health","Port":8080,"Host":"","Scheme":"HTTP","HTTPHeaders":null},"TCPSocket":null,"InitialDelaySeconds":5,"TimeoutSeconds":1,"PeriodSeconds":
+
+A: 1,"SuccessThreshold":1,"FailureThreshold":2},"ReadinessProbe":null,"Lifecycle":null,"TerminationMessagePath":"/dev/termination-log","TerminationMessagePolicy":"File","ImagePullPolicy":"IfNotPresent","SecurityContext":null,"Stdin":false,"StdinOnce":false,"TTY":false}],"RestartPolicy":"Always","TerminationGracePeriodSeconds":30,"ActiveDeadlineSeconds":null,"DNSPolicy":"ClusterFirst","NodeSelector":null,"ServiceAccountName":"default","AutomountServiceAccountToken":null,"NodeName":"docker-for-desktop","SecurityContext":{"HostNetwork":false,"HostPID":false,"HostIPC":false,"SELinuxOptions":null,"RunAsUser":null,"RunAsNonRoot":null,"SupplementalGroups":null,"FSGroup":null},"ImagePullSecrets":null,"Hostname":"","Subdomain":"","Affinity":null,"SchedulerName":"default-scheduler","Tolerations":[{"Key":"node.kubernetes.io/not-ready","Operator":"Exists","Value":"","Effect":"NoExecute","TolerationSeconds":300},{"Key":"node.kubernetes.io/unreachable","Operator":"Exists","Value":"","Effect":"NoExecute","TolerationSeconds":300}],"HostAliases":null,"PriorityClassName":"","Priority":null,"DNSConfig":null}
+
+B: 2,"SuccessThreshold":1,"FailureThreshold":2},"ReadinessProbe":null,"Lifecycle":null,"TerminationMessagePath":"/dev/termination-log","TerminationMessagePolicy":"File","ImagePullPolicy":"IfNotPresent","SecurityContext":null,"Stdin":false,"StdinOnce":false,"TTY":false}],"RestartPolicy":"Always","TerminationGracePeriodSeconds":30,"ActiveDeadlineSeconds":null,"DNSPolicy":"ClusterFirst","NodeSelector":null,"ServiceAccountName":"default","AutomountServiceAccountToken":null,"NodeName":"docker-for-desktop","SecurityContext":{"HostNetwork":false,"HostPID":false,"HostIPC":false,"SELinuxOptions":null,"RunAsUser":null,"RunAsNonRoot":null,"SupplementalGroups":null,"FSGroup":null},"ImagePullSecrets":null,"Hostname":"","Subdomain":"","Affinity":null,"SchedulerName":"default-scheduler","Tolerations":[{"Key":"node.kubernetes.io/not-ready","Operator":"Exists","Value":"","Effect":"NoExecute","TolerationSeconds":300},{"Key":"node.kubernetes.io/unreachable","Operator":"Exists","Value":"","Effect":"NoExecute","TolerationSeconds":300}],"HostAliases":null,"PriorityClassName":"","Priority":null,"DNSConfig":null}
+
+
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"name":"simpleweb-pod","namespace":"default"},"spec":{"containers":[{"image":"simpleweb:v0.1","livenessProbe":{"failureThreshold":2,"httpGet":{"path":"/actuator/health","port":8080},"initialDelaySeconds":5,"periodSeconds":2,"timeoutSeconds":1},"name":"simpleweb","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}]}]}}
+  creationTimestamp: 2018-03-26T18:14:33Z
+  name: simpleweb-pod
+  namespace: default
+  resourceVersion: "654718"
+  selfLink: /api/v1/namespaces/default/pods/simpleweb-pod
+  uid: 892b2c3c-3121-11e8-bb90-025000000001
+spec:
+  containers:
+  - image: simpleweb:v0.1
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 2
+      httpGet:
+        path: /actuator/health
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 5
+      periodSeconds: 1
+      successThreshold: 1
+      timeoutSeconds: 1
+    name: simpleweb
+    ports:
+    - containerPort: 8080
+      name: http
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-rf5lq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: docker-for-desktop
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-rf5lq
+    secret:
+      defaultMode: 420
+      secretName: default-token-rf5lq
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2018-03-26T18:14:33Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2018-03-26T18:16:16Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2018-03-26T18:14:33Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://e247920984235022ab00254645a10d9a4887a7f610959c5d127bdbbf1eed6f25
+    image: simpleweb:v0.1
+    imageID: docker://sha256:dced58022c66d6913dcead858b577bc00d04f14266dfe57397a859faf1ec1007
+    lastState:
+      terminated:
+        containerID: docker://9ff8b0db8824e6d34207fa86cab4ee8d8971a0c55e76f63b5fe6f2d70c52ed96
+        exitCode: 0
+        finishedAt: 2018-03-26T18:16:14Z
+        reason: Completed
+        startedAt: 2018-03-26T18:15:56Z
+    name: simpleweb
+    ready: true
+    restartCount: 2
+    state:
+      running:
+        startedAt: 2018-03-26T18:16:15Z
+  hostIP: 192.168.65.3
+  phase: Running
+  podIP: 10.1.0.111
+  qosClass: BestEffort
+  startTime: 2018-03-26T18:14:33Z
