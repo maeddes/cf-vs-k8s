@@ -1,0 +1,2 @@
+- tailing aggregate logs
+- adding liveness / readiness probes
