@@ -1,0 +1,32 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simpleweb-pod
+spec:
+  containers:
+    - name: simpleweb
+      image: simpleweb:v0.1
+      livenessProbe:
+        httpGet:
+          path: /actuator/health
+          port: 8080
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 2
+        failureThreshold: 2
+      readinessProbe:
+        httpGet:
+          path: /hello
+          port: 8080
+        initialDelaySeconds: 1
+        timeoutSeconds: 1
+        periodSeconds: 1
+        failureThreshold: 1
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+             
+
+    

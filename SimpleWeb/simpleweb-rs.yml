@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: simpleweb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simpleweb
+    spec:
+      containers:
+      - name: simpleweb
+        image: simpleweb:v0.1
+        imagePullPolicy: IfNotPresent 
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /hello
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 1
+          successThreshold: 1
+          timeoutSeconds: 1
