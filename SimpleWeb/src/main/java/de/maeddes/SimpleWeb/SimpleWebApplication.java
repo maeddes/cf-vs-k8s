@@ -18,14 +18,14 @@ public class SimpleWebApplication {
 	@GetMapping("/hello")
 	String hello(){
 
-		return hostname+": Hello, bootiful World!";
+		return hostname+": Hello, bootiful World! (v1) ";
 	}
 
 	@GetMapping("/fail")
 	String fail() {
 
 		System.exit(0);
-		return "Hello, World!";
+		return "fixed!";
 	}
 
 	public static void main(String[] args) {

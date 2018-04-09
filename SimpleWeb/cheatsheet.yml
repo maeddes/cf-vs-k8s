@@ -1,0 +1,30 @@
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simpleweb
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleweb
+    spec:
+      containers:
+      - image: simpleweb:v0.1
+        imagePullPolicy: IfNotPresent
+        name: simpleweb
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /hello
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 1
+          successThreshold: 1
+          timeoutSeconds: 1
