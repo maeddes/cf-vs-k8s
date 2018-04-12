@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleWebApplication {
 	
 	@Value("${CF_INSTANCE_GUID:not_set}")
-	String system_cf_index;
+	String cfInstance;
 
 	@Value("${HOSTNAME:not_set}")
-	String system_hostname;
+	String hostname;
 	
 	String getHostName(){
 
-		if(!system_hostname.equals("not_set")) return system_hostname;
-		if(!system_cf_index.equals("not_set")) return system_cf_index;
+		if(!hostname.equals("not_set")) return hostname;
+		if(!cfInstance.equals("not_set")) return cfInstance;
 		return "no_host_info";
 
 	}
@@ -31,7 +31,7 @@ public class SimpleWebApplication {
 
 		System.out.println(System.getProperties());
 		System.out.println(System.getenv().toString());
-		return system_cf_index + system_hostname + getHostName();
+		return cfInstance + hostname + getHostName();
 
 	}
 
@@ -44,7 +44,7 @@ public class SimpleWebApplication {
 	@GetMapping("/fail")
 	String fail() {
 
-		System.exit(0);
+		//System.exit(0);
 		return "fixed!";
 	}
 
