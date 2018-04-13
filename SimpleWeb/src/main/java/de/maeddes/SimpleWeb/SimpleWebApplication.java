@@ -44,7 +44,7 @@ public class SimpleWebApplication {
 	@GetMapping("/fail")
 	String fail() {
 
-		//System.exit(0);
+		System.exit(0);
 		return "fixed!";
 	}
 

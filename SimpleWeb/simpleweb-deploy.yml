@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: simpleweb
+  name: simpleweb
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpleweb
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleweb
+    spec:
+      containers:
+      - image: simpleweb:v0.1
+        imagePullPolicy: IfNotPresent
+        name: simpleweb
+      restartPolicy: Always
