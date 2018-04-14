@@ -38,7 +38,7 @@ public class SimpleWebApplication {
 	@GetMapping("/hello")
 	String hello(){
 
-		return getHostName()+": Hello, bootiful World! (v1) ";
+		return getHostName()+": Hello, bootiful world! (v1) ";
 	}
 
 	@GetMapping("/fail")
