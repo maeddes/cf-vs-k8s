@@ -18,7 +18,7 @@ public class SimpleWebApplication {
 	@Value("${HOSTNAME:not_set}")
 	String hostname;
 	
-	String getHostName(){
+	private String getHostName(){
 
 		if(!hostname.equals("not_set")) return hostname;
 		if(!cfInstance.equals("not_set")) return cfInstance;
@@ -26,19 +26,10 @@ public class SimpleWebApplication {
 
 	}
 
-	@GetMapping("/test")
-	String test(){
-
-		System.out.println(System.getProperties());
-		System.out.println(System.getenv().toString());
-		return cfInstance + hostname + getHostName();
-
-	}
-
 	@GetMapping("/hello")
 	String hello(){
 
-		return getHostName()+": Hello, bootiful World! (v1) ";
+		return getHostName()+": Hello, bootiful world! (v1) ";
 	}
 
 	@GetMapping("/fail")
