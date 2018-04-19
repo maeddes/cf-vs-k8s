@@ -1,5 +1,5 @@
 applications:
 - name: simpleweb-green
   memory: 384M
-  instances: 3
+  instances: 1
   path: target/SimpleWeb-0.0.1-SNAPSHOT.jar
