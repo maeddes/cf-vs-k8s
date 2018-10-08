@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simpleweb
+spec:
+  rules:
+  - host: sw1.kbv-development.eu-central.containers.mybluemix.net
+    http:
+      paths:
+      - backend:
+          serviceName: sw1
+          servicePort: 8080
