@@ -1,7 +1,5 @@
 package de.maeddes.SimpleWeb;
 
-
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,19 +15,23 @@ public class SimpleWebApplication {
 
 	@Value("${HOSTNAME:not_set}")
 	String hostname;
+
+	@Value("${spring.profiles.active: none}")
+	String profile;
 	
-	private String getHostName(){
+	private String getInstanceId(){
 
 		if(!hostname.equals("not_set")) return hostname;
 		if(!cfInstance.equals("not_set")) return cfInstance;
-		return "no_host_info";
+		return "probably localhost";
 
 	}
 
-	@GetMapping("/hello")
+	@GetMapping("/")
 	String hello(){
 
-		return getHostName()+": Hello, bootiful world! (v1) ";
+		return getInstanceId()+" Spring One Platform Demo App";
+		
 	}
 
 	@GetMapping("/fail")

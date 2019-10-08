@@ -22,7 +22,10 @@ spec:
         app: simpleweb
     spec:
       containers:
-      - image: simpleweb:v0.1
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        image: maeddes/simpleweb:v0.1
         imagePullPolicy: IfNotPresent
         name: simpleweb
       restartPolicy: Always
