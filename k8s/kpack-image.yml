@@ -1,0 +1,15 @@
+apiVersion: build.pivotal.io/v1alpha1
+kind: Image
+metadata:
+  name: springonedemo
+spec:
+  builder:
+    name: cflinuxfs3-builder
+    kind: Builder
+  serviceAccount: service-account
+  cacheSize: "1.5Gi"
+  source:
+    git:
+      url: https://github.com/maeddes/cf-vs-k8s.git
+      revision: master
+  tag: drnic/springonedemo:latest
