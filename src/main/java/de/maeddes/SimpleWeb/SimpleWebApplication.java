@@ -30,7 +30,7 @@ public class SimpleWebApplication {
 	@GetMapping("/")
 	String hello(){
 
-		return getInstanceId()+" Spring One Platform Demo App; with more Matthias";
+		return getInstanceId()+" Spring One Platform Demo App";
 		
 	}
 
