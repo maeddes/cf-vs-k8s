@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class SimpleWebApplication {
-	
+
 	@Value("${CF_INSTANCE_GUID:not_set}")
 	String cfInstance;
 
@@ -18,7 +18,7 @@ public class SimpleWebApplication {
 
 	@Value("${spring.profiles.active: none}")
 	String profile;
-	
+
 	private String getInstanceId(){
 
 		if(!hostname.equals("not_set")) return hostname;
@@ -31,7 +31,7 @@ public class SimpleWebApplication {
 	String hello(){
 
 		return getInstanceId()+" Spring One Platform Demo App";
-		
+
 	}
 
 	@GetMapping("/fail")
