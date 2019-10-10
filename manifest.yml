@@ -1,5 +1,4 @@
 applications:
 - name: springonedemo
-  instances: 1
   memory: 768M
   path: target/SimpleWeb-0.0.1-SNAPSHOT.jar
