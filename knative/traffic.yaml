@@ -1,0 +1,7 @@
+  traffic:
+  - latestRevision: false
+    percent: 50
+    revisionName: wjax-demo-4r2sk
+  - latestRevision: false
+    percent: 50
+    revisionName: wjax-demo-z9hgp

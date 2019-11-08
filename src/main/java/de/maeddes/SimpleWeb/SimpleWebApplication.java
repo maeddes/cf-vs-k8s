@@ -30,14 +30,14 @@ public class SimpleWebApplication {
 	@GetMapping("/")
 	String hello(){
 
-		return getInstanceId()+" Spring One Platform Demo App";
+		return getInstanceId()+" Servus, München! ";
 
 	}
 
 	@GetMapping("/fail")
 	String fail() {
 
-		System.exit(1);
+		//System.exit(1);
 		return "fixed!";
 	}
 
