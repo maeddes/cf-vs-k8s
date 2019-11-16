@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
- name: wjax-demo
+ name: kn-demo
  namespace: default
 spec:
  template:
