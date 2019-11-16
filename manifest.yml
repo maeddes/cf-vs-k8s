@@ -1,4 +1,4 @@
 applications:
-- name: wjaxdemo
+- name: simpleweb
   memory: 768M
   path: target/SimpleWeb-0.0.1-SNAPSHOT.jar
