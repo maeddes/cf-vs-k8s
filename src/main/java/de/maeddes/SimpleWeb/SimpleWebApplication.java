@@ -27,7 +27,7 @@ public class SimpleWebApplication {
 
 	}
 
-	@GetMapping("/")
+	@GetMapping("/hello")
 	String hello(){
 
 		return getInstanceId()+" Hallo, Novatec! (v1)";
