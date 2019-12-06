@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: simpleweb
-  name: simpleweb-backup
+  name: simpleweb
   namespace: default
 spec:
   externalTrafficPolicy: Cluster

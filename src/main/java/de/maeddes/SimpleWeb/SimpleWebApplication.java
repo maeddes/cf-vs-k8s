@@ -27,17 +27,17 @@ public class SimpleWebApplication {
 
 	}
 
-	@GetMapping("/")
+	@GetMapping("/hello")
 	String hello(){
 
-		return getInstanceId()+" Hallo, Novatec! (v1)";
+		return getInstanceId()+" Hallo, Welt ! (v2)";
 
 	}
 
 	@GetMapping("/fail")
 	String fail() {
 
-		System.exit(1);
+		//System.exit(1);
 		return "fixed!";
 	}
 
