@@ -30,7 +30,7 @@ public class SimpleWebApplication {
 	@GetMapping("/hello")
 	String hello(){
 
-		return getInstanceId()+" Hallo, Welt ! ";
+		return getInstanceId()+" Hallo, HdM ! ";
 
 	}
 
