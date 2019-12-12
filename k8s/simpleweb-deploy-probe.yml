@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: simpleweb
+  name: simpleweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpleweb
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleweb
+    spec:
+      containers:
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        image: maeddes/simpleweb:v0.1
+        readinessProbe:
+          httpGet:
+            path: /hello
+            port: 8080
+          initialDelaySeconds: 1
+          timeoutSeconds: 1
+          periodSeconds: 1
+          failureThreshold: 1
+        imagePullPolicy: Always
+        name: simpleweb
+      restartPolicy: Always
