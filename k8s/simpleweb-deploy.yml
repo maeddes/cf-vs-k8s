@@ -5,7 +5,7 @@ metadata:
     app: simpleweb
   name: simpleweb
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: simpleweb
@@ -24,7 +24,7 @@ spec:
       - env:
         - name: SPRING_PROFILES_ACTIVE
           value: dev
-        image: maeddes/simpleweb:v0.1
+        image: maeddes/simpleweb:v0.2
         imagePullPolicy: Always
         name: simpleweb
       restartPolicy: Always
