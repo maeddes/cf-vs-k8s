@@ -30,14 +30,14 @@ public class SimpleWebApplication {
 	@GetMapping("/hello")
 	String hello(){
 
-		return getInstanceId()+" Hello, HfT 2020! ";
+		return getInstanceId()+" Hello, OOP 2020! ";
 
 	}
 
 	@GetMapping("/fail")
 	String fail() {
 
-		//System.exit(1);
+		System.exit(1);
 		return "fixed!";
 	}
 
