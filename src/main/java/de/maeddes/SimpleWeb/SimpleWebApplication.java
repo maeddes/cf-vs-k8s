@@ -23,14 +23,14 @@ public class SimpleWebApplication {
 
 		if(!hostname.equals("not_set")) return hostname;
 		if(!cfInstance.equals("not_set")) return cfInstance;
-		return "probably localhost";
+		return "probably not set";
 
 	}
 
 	@GetMapping("/hello")
 	String hello(){
 
-		return getInstanceId()+" Hello, OOP 2020! ";
+		return getInstanceId()+" Hallo, SEACON! ";
 
 	}
 

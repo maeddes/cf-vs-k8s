@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: simpleweb
+  name: simpleweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simpleweb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleweb
+    spec:
+      containers:
+      - image: maeddes/simpleweb:v0.1
+        name: simpleweb
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /hello
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 1
+          periodSeconds: 1
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+status: {}

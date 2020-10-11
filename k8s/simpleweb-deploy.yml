@@ -1,11 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: simpleweb
   name: simpleweb
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: simpleweb
@@ -24,7 +24,7 @@ spec:
       - env:
         - name: SPRING_PROFILES_ACTIVE
           value: dev
-        image: maeddes/simpleweb:v0.2
+        image: maeddes/simpleweb:v0.1
         imagePullPolicy: Always
         name: simpleweb
       restartPolicy: Always
